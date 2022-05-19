@@ -15,9 +15,9 @@
 // [START drive_search_files] 
 using Google;
 using Google.Apis.Auth.OAuth2;
-using Google.Apis.Drive.v2beta;
+using Google.Apis.Drive.v2;
 using Google.Apis.Services;
-using File = Google.Apis.Drive.v2beta.Data.File;
+using File = Google.Apis.Drive.v2.Data.File;
 
 
 namespace DriveV2Snippets
