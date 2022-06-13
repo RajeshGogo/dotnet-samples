@@ -17,16 +17,16 @@ using NUnit.Framework;
 
 namespace DriveV2SnippetsTest
 {
-    // Unit testcase for drive v2 create Drive snippet
-    [TestFixture]
-    public class CreateDriveTest : BaseTest
+  // Unit testcase for drive v2 create Team drive snippet
+  [TestFixture]
+  public class CreateTeamDriveTest : BaseTest
+  {
+    [Test]
+    public void TestCreateTeamDrive()
     {
-        [Test]
-        public void TestCreateDrive()
-        {
-            var id = CreateDrive.DriveCreateDrive();
-            Assert.IsNotNull(id);
-            DeleteFileOnCleanup(id);
-        }
+      var id = CreateTeamDrive.DriveCreateTeamDrive();
+      Assert.IsNotNull(id);
+      DeleteFileOnCleanup(id);
     }
+  }
 }

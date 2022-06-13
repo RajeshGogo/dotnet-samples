@@ -17,16 +17,19 @@ using NUnit.Framework;
 
 namespace DriveV2SnippetsTest
 {
-    // Unit testcase for drive v2 create Drive snippet
-    [TestFixture]
-    public class CreateDriveTest : BaseTest
+  // Unit testcase for drive v2 upload basic snippet
+  [TestFixture]
+  public class UploadBasicTest : BaseTest
+  {
+    // TODO(developer) - Provide absolute file path.
+    private string filePath = "/home/priyanka/RiderProjects/dotnet-samples/drive/snippets/drive_v2/files/photo.jpg";
+
+    [Test]
+    public void TestUploadBasic()
     {
-        [Test]
-        public void TestCreateDrive()
-        {
-            var id = CreateDrive.DriveCreateDrive();
-            Assert.IsNotNull(id);
-            DeleteFileOnCleanup(id);
-        }
-    }
+      var id = UploadBasic.DriveUploadBasic(filePath);
+      Assert.IsNotNull(id);
+      DeleteFileOnCleanup(id);
+    }        
+  }
 }
