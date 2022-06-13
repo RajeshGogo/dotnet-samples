@@ -17,18 +17,16 @@ using NUnit.Framework;
 
 namespace DriveV2SnippetsTest
 {
-  // Unit testcase for drive v3 upload basic snippet
-  [TestFixture]
-  public class UploadBasicTest : BaseTest
-  {
-    private string filePath = "files/photo.jpg"; 
 
+  // Unit testcase for drive v2 search files snippet
+  [TestFixture]
+  public class SearchFilesTest : BaseTest
+  {
     [Test]
-    public void TestUploadBasic()
+    public void TestSearchFiles()
     {
-      var id = UploadBasic.DriveUploadBasic(filePath);
-      Assert.IsNotNull(id);
-      DeleteFileOnCleanup(id);
-    }        
+      var files = SearchFiles.DriveSearchFiles();
+      Assert.AreNotEqual(0, files.Count);
+    }
   }
 }

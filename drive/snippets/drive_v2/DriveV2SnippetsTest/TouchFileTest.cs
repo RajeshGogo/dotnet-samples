@@ -17,18 +17,18 @@ using NUnit.Framework;
 
 namespace DriveV2SnippetsTest
 {
-  // Unit testcase for drive v3 upload basic snippet
+  // Unit testcase for drive v3 touch file snippet
   [TestFixture]
-  public class UploadBasicTest : BaseTest
+  public class TouchFileTest : BaseTest
   {
-    private string filePath = "files/photo.jpg"; 
-
+    private string filePath = "/home/priyanka/RiderProjects/dotnet-samples/drive/snippets/drive_v2/files/document.txt";
     [Test]
-    public void TestUploadBasic()
+    public void TestTouchFile()
     {
-      var id = UploadBasic.DriveUploadBasic(filePath);
-      Assert.IsNotNull(id);
-      DeleteFileOnCleanup(id);
-    }        
+      var id = CreateTestBlob(filePath);
+      var now = DateTime.Now;
+      var modifiedTime = TouchFile.DriveTouchFile(id, now);
+      Assert.AreEqual(now.ToString(), modifiedTime.Value.ToString());
+    }
   }
 }

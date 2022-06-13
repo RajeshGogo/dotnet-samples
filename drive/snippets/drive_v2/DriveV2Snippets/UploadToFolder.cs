@@ -32,7 +32,7 @@ namespace DriveV2Snippets
         /// <param name="folderId"></param>
         /// <returns>Inserted file metadata if successful, null otherwise</returns>
 
-        public File DriveUploadToFolder(string folderId)
+        public static File DriveUploadToFolder(string folderId)
         {
             try
             {

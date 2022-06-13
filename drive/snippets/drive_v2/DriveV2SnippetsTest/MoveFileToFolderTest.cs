@@ -17,18 +17,21 @@ using NUnit.Framework;
 
 namespace DriveV2SnippetsTest
 {
-  // Unit testcase for drive v3 upload basic snippet
+  // Unit testcase for drive v2 move file to folder snippet
   [TestFixture]
-  public class UploadBasicTest : BaseTest
+  public class MoveFileToFolderTest : BaseTest
   {
-    private string filePath = "files/photo.jpg"; 
-
+    private string filePath = "files/document.txt";
     [Test]
-    public void TestUploadBasic()
+    public void TestMoveFileToFolder()
     {
-      var id = UploadBasic.DriveUploadBasic(filePath);
-      Assert.IsNotNull(id);
-      DeleteFileOnCleanup(id);
-    }        
+      var fileId = CreateTestBlob(filePath);
+      var folderId = CreateFolder.DriveCreateFolder();
+      IList<string> parents = MoveFileToFolder.DriveMoveFileToFolder(
+        fileId, folderId);
+      Assert.IsTrue(parents.Contains(folderId));
+      Assert.AreEqual(1, parents.Count);
+      DeleteFileOnCleanup(folderId);
+    }
   }
 }
